@@ -51,6 +51,25 @@ const TodoList = () => {
       })
   }
 
+  // Todo 삭제
+  const deleteTodo = (id) => {
+    if (window.confirm('삭제하시겠습니까?')) {
+      axios({
+        url: `https://pre-onboarding-selection-task.shop/todos/${id}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => {
+          getTodos()
+        })
+        .catch((err) => {
+          alert('삭제 실패')
+        })
+    }
+  }
+
   useEffect(() => {
     getTodos()
   }, [])
@@ -82,7 +101,12 @@ const TodoList = () => {
               <span>{it.todo}</span>
             </label>
             <button data-testid="modify-button">수정</button>
-            <button data-testid="delete-button">삭제</button>
+            <button
+              data-testid="delete-button"
+              onClick={() => deleteTodo(it.id)}
+            >
+              삭제
+            </button>
           </li>
         ))}
       </ul>
