@@ -136,6 +136,11 @@ const LoginForm = styled.div`
       font-size: 16px;
       background-color: #6c5ce7;
       color: #fff;
+
+      &:disabled {
+        background-color: #8c8d96;
+        cursor: not-allowed;
+      }
     }
   }
 `
