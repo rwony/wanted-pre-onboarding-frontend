@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Signin = () => {
   const navigate = useNavigate()
@@ -50,28 +51,32 @@ const Signin = () => {
   }, [email, pwd])
 
   return (
-    <div>
+    <SignupForm>
       <h2>회원가입</h2>
 
       <form onSubmit={onSubmitSignin}>
-        <div>
-          <label htmlFor="user-email">E-mail</label>
-          <input
-            type="text"
-            id="user-email"
-            data-testid="email-input"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+        <div className="form_input">
+          <div className="form_input_item">
+            <label htmlFor="user-email">E-mail</label>
+            <input
+              type="text"
+              id="user-email"
+              data-testid="email-input"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-        <div>
-          <label htmlFor="user-password">Password</label>
-          <input
-            type="password"
-            id="user-password"
-            data-testid="password-input"
-            onChange={(e) => setPwd(e.target.value)}
-          />
+          <div>
+            <div className="form_input_item">
+              <label htmlFor="user-password">Password</label>
+              <input
+                type="password"
+                id="user-password"
+                data-testid="password-input"
+                onChange={(e) => setPwd(e.target.value)}
+              />
+            </div>
+          </div>
         </div>
 
         <button
@@ -82,8 +87,57 @@ const Signin = () => {
           회원가입
         </button>
       </form>
-    </div>
+    </SignupForm>
   )
 }
+
+const SignupForm = styled.div`
+  h2 {
+    padding: 30px 0;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form_input {
+      margin-bottom: 20px;
+    }
+
+    .form_input_item {
+      margin-bottom: 20px;
+
+      label,
+      input {
+        letter-spacing: -0.05em;
+      }
+
+      label {
+        margin-right: 8px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      input {
+        height: 36px;
+        border: 1px solid #e0e2e7;
+        border-radius: 8px;
+        background-color: #fff;
+      }
+    }
+
+    button {
+      width: 100px;
+      height: 40px;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #6c5ce7;
+      color: #fff;
+    }
+  }
+`
 
 export default Signin

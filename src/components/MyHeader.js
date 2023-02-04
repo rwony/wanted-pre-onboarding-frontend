@@ -14,7 +14,9 @@ const MyHeader = () => {
 
   return (
     <Header>
-      <h1>2023 원티드 프리온보딩 프론트엔드 - 선발 과제</h1>
+      <h1>
+        <Link to={'/'}>2023 원티드 프리온보딩 프론트엔드 - 선발 과제</Link>
+      </h1>
 
       <nav>
         <ul>
@@ -41,36 +43,40 @@ const MyHeader = () => {
 }
 
 const Header = styled.header`
+  display: flex;
+  flex-direction: column-reverse;
+
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 
   h1 {
-    padding: 8px;
+    align-items: center;
+    padding: 20px 0;
     font-size: 24px;
     text-align: center;
+    letter-spacing: -0.02em;
   }
 
-  ul {
-    display: flex;
-    justify-content: end;
+  nav {
+    background-color: #f7f8fa;
 
-    li {
-      padding: 20px 0;
+    ul {
+      display: flex;
+      justify-content: end;
 
-      button,
-      a {
-        font-size: 14px;
-        font-weight: 700;
+      li {
+        padding: 6px 0;
 
-        &:hover {
-          opacity: 0.7;
-          transition: opacity 0.2s ease-in-out;
+        button,
+        a {
+          font-size: 14px;
+          font-weight: 700;
         }
-      }
 
-      &::after {
-        content: '';
-        margin-right: 16px;
+        &::after {
+          content: '';
+          margin-right: 16px;
+        }
       }
     }
   }

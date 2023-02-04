@@ -57,7 +57,7 @@ const Signin = () => {
       <h2>로그인</h2>
 
       <form onSubmit={onSubmitSignin}>
-        <div className="form__input">
+        <div className="form_input">
           <div className="form_input_item">
             <label htmlFor="user-email">E-mail</label>
             <input
@@ -103,7 +103,7 @@ const LoginForm = styled.div`
     flex-direction: column;
     align-items: center;
 
-    .form__input {
+    .form_input {
       margin-bottom: 20px;
     }
 
