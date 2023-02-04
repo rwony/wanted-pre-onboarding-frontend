@@ -7,20 +7,38 @@
 }
 
 html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 body {
+  margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
+}
+
+main {
+  display: block;
 }
 
 h1 {
   margin: 0;
 }
 
+a,
+button {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
+  background-color: transparent;
   text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
 }
 
 button,
@@ -31,6 +49,11 @@ textarea {
   border: 0;
 }
 
+button:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+}
+
 button:focus,
 input:focus,
 select:focus,
@@ -39,13 +62,20 @@ textarea:focus {
   box-shadow: none;
 }
 
-a,
-button {
-  cursor: pointer;
-}
-
 ul,
 ol {
   padding-left: 0;
   list-style: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
